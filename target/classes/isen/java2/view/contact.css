@@ -1,0 +1,25 @@
+#homeButton{
+	-fx-background-color: transparent, #6fbfeb;
+    -fx-background-radius: 0px;
+    -fx-text-fill:white;
+    -fx-border-width: 5px 0;
+    -fx-border-style: solid;
+    -fx-border-color: #a6d5ef;
+}
+
+#homeTitle {
+    -fx-background-color:#6fbfeb;
+    -fx-fill:white;
+    -fx-border-width: 5px 0;
+    -fx-border-style: solid;
+    -fx-border-color: #a6d5ef;
+    -fx-text-alignment: center; 
+        
+}
+
+#author {        
+    -fx-text-fill:#6fbfeb;         
+}
+
+
+
