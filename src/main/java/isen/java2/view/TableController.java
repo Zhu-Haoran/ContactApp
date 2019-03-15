@@ -14,6 +14,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -33,10 +34,14 @@ public class TableController {
 	@FXML private TableColumn<Person, String> tc_adress;
 	@FXML private TableColumn<Person, String> tc_eadress;
 	@FXML private TableColumn<Person, String> tc_birth;
+	@FXML private TableColumn<Person, String> tc_category;
 	
 	@FXML private TextField TF_search;	
 	@FXML private AnchorPane formPane;	
 	@FXML private ImageView imageview;
+	@FXML RadioButton radio1;
+	@FXML RadioButton radio2;
+	@FXML RadioButton radio3;
 	
 	private Person currentPerson;	
 	private String name;	
@@ -60,7 +65,7 @@ public class TableController {
 		this.tc_phone.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Person, String>, ObservableValue<String>>() {  
 			@Override  
 			public ObservableValue<String> call(CellDataFeatures<Person, String> arg0) {       
-				return new SimpleStringProperty(arg0.getValue().getPhone_number().toString()); }  
+				return new SimpleStringProperty(arg0.getValue().getPhone_number()); }  
 		}); 
 		this.tc_adress.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Person, String>, ObservableValue<String>>() {  
 			@Override  
@@ -77,6 +82,11 @@ public class TableController {
 			public ObservableValue<String> call(CellDataFeatures<Person, String> arg0) {       
 				return new SimpleStringProperty(arg0.getValue().getBirth_date().toString()); }  
 		});
+		this.tc_category.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Person, String>,ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Person, String> arg0) {
+				return new SimpleStringProperty(arg0.getValue().getCategory());	}
+		});
 
 		this.tc_lastname.setSortable(true); 
 		this.tc_firstname.setSortable(true); 
@@ -84,7 +94,8 @@ public class TableController {
 		this.tc_phone.setSortable(true); 
 		this.tc_adress.setSortable(true); 
 		this.tc_eadress.setSortable(true); 
-		this.tc_birth.setSortable(true); 
+		this.tc_birth.setSortable(true);
+		this.tc_category.setSortable(true);
 		
         this.populateList();
         this.personsTable.getSelectionModel().selectedItemProperty().addListener(new PersonListener() {
@@ -124,12 +135,12 @@ public class TableController {
     @FXML
     private void handleEditButton() {    	
     	if(this.currentPerson!=null) {
-    		System.out.println("currentPerson id:"+this.currentPerson.getId());
+    		System.out.println("CurrentPerson id:"+this.currentPerson.getId());
     		IndexService.setIndex(this.currentPerson.getId());
     	}
     	else
     		IndexService.setIndex(0);
-    	System.out.println("index:"+IndexService.getIndex());
+    	System.out.println("Index:"+IndexService.getIndex());
     	StageService.showView(ViewService.getView("Persons"));
     }
     

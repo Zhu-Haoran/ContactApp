@@ -26,7 +26,7 @@ public class StageService {
 	}
 
 	public static void initPrimaryStage(Stage primaryStage) {
-		primaryStage.setTitle("Contact GUI");
+		primaryStage.setTitle("Contact APP");
 		primaryStage.setScene(new Scene(StageServiceHolder.INSTANCE.mainLayout));
 		primaryStage.show();
 

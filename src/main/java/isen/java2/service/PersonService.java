@@ -17,14 +17,15 @@ public class PersonService {
 	public static void initDatabase() throws Exception {
 		Connection connection = DataSourceFactory.getDataSource().getConnection();
 		Statement stmt = connection.createStatement();
-		stmt.executeUpdate("DELETE FROM person");
-		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date)  VALUES (1, 'ZHAO', 'Yudong', 'Dong', 659783877, 'FI 311', 'yudong.zhao@isen.yncrea.fr','1995-04-05')");
-		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date)  VALUES (2, 'YANG', 'Ziheng', 'Heng', 666821026, 'FI 312', 'ziheng.yang@isen.yncrea.fr','1995-11-14')");
-		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date)  VALUES (3, 'FENG', 'Peng', 'Peng', 666821026, 'FI 220', 'peng.feng@isen.yncrea.fr','1993-08-31')");
-		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date)  VALUES (4, 'Nom', 'Prenom', 'Nickname', 0, 'Address', 'email@isen.yncrea.fr','2000-01-01')");
-		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date)  VALUES (5, 'Nom', 'Prenom', 'Nickname', 0, 'Address', 'email@isen.yncrea.fr','2000-01-01')");	
-		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date)  VALUES (6, 'Nom', 'Prenom', 'Nickname', 0, 'Address', 'email@isen.yncrea.fr','2000-01-01')");
-		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date)  VALUES (7, 'Nom', 'Prenom', 'Nickname', 0, 'Address', 'email@isen.yncrea.fr','2000-01-01')");	
+		/*stmt.executeUpdate("DELETE FROM person");
+		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date,category)  VALUES (1, 'GENG', 'Mingxue', 'Mingxuexue', '761559161', '5 rue de FF', 'mingxue@gmail.com','1997-06-16','Famliy')");
+		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date,category)  VALUES (2, 'PAN', 'Yuanxiang', 'Panpan','766291882', '5 rue de LL', 'yuanxiang@gamil.com','1997-02-24','Friend')");
+		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date,category)  VALUES (3, 'ZHENG', 'Wanqi', 'Qiqi','655193872', '5 rue de EE', 'wanqi@gmail.com','1996-07-27','Roommate')");
+		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date,category)  VALUES (4, 'CAO', 'Yu', 'Yuyu','567532098', '5 rue de NN', 'yuyu@gmail.com','1996-07-08','Friend')");
+		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date,category)  VALUES (5, 'WANG', 'Xin', 'Xinxin','762543829', '5 rue de DD', 'xinxin@gmail.com','1996-01-30','Friend')");	
+		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date,category)  VALUES (6, 'XU', 'Lu', 'Lulu','536784291', '10 rue de BB', 'lulu@gmail.com','1995-05-09','Friend')");
+		stmt.executeUpdate("INSERT INTO person(idperson,lastname, firstname, nickname, phone_number, address, email_address,birth_date,category)  VALUES (7, 'ZHU', 'Haoran', 'Haoran','647386554', '10 rue de AA', 'haoran@gmail.com','1995-01-01','Friend')");
+		*/
 		System.out.println("Updating database");
 		stmt.close();
 		connection.close();		
@@ -40,13 +41,6 @@ public class PersonService {
 		List<Person> p =new PersonDao().listPersons();
 		persons = FXCollections.observableArrayList();
 		persons.addAll(p);
-		
-//		persons.add(new Person(1, "ZHAO", "Yudong","Dong",659783877,"FI 311",
-//				"yudong.zhao@isen.yncrea.fr",LocalDate.of(1995, Month.APRIL, 05)));		
-//		persons.add(new Person(2, "YANG", "Ziheng","Heng",666821026,"FI 312",
-//				"ziheng.yang@isen.yncrea.fr",LocalDate.of(1995, Month.NOVEMBER, 14)));
-//		persons.add(new Person(3, "FENG", "Peng","Peng",666821026,"FI 220",
-//				"peng.feng@isen.yncrea.fr",LocalDate.of(1993, Month.AUGUST, 31)));
 
 	}
 

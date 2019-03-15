@@ -39,10 +39,11 @@ public class PersonDao {
 				resultSet.getString("lastname"),
 				resultSet.getString("firstname"),
 				resultSet.getString("nickname"),
-				resultSet.getInt("phone_number"),
+				resultSet.getString("phone_number"),
 				resultSet.getString("address"),
 				resultSet.getString("email_address"),                
-				resultSet.getDate("birth_date").toLocalDate()
+				resultSet.getDate("birth_date").toLocalDate(),
+				resultSet.getString("category")
 				);
 	}
 	
@@ -53,7 +54,7 @@ public class PersonDao {
 				System.out.println("now deleting id："+person.getId());
 				statement.setInt(1, person.getId());
 				statement.executeUpdate();
-				System.out.println("deleting person on database");
+				System.out.println("Deleting person on database");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -61,20 +62,20 @@ public class PersonDao {
 	}
 	
 	public void save(Person person) {
-		String sqlQuery="UPDATE person set lastname=?, firstname=?, nickname=?,"
-				+ "phone_number=?, address=?, email_address=?, birth_date=?  WHERE idperson=?";
+		String sqlQuery="UPDATE person set lastname=?, firstname=?, nickname=?, phone_number=?, address=?, email_address=?, birth_date=?, category=? WHERE idperson=?";
 		try (Connection connection = DataSourceFactory.getDataSource().getConnection()) {
 			try(PreparedStatement statement = connection.prepareStatement(sqlQuery)){
 				statement.setString(1, person.getLastname());
 				statement.setString(2, person.getFirstname());
 				statement.setString(3, person.getNickname());
-				statement.setInt(4, person.getPhone_number());
+				statement.setString(4, person.getPhone_number());
 				statement.setString(5, person.getAddress());
 				statement.setString(6, person.getEmail_address());
 				statement.setDate(7, Date.valueOf(person.getBirth_date()));
-				statement.setInt(8,person.getId());
+				statement.setString(8, person.getCategory());
+				statement.setInt(9,person.getId());
 				statement.executeUpdate();
-				System.out.println("saving person on database");
+				System.out.println("Saving person on database");
 			}			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -98,19 +99,20 @@ public class PersonDao {
 		List<Person> persons = new PersonDao().listPersons();
 		int size=persons.size();
 		int num=persons.get(size-1).getId()+1;
-		String sqlQuery = "INSERT INTO person(idperson,lastname,firstname,nickname,phone_number,address,email_address,birth_date) VALUES(?,?,?,?,?,?,?,?)";
+		String sqlQuery = "INSERT INTO person(idperson,lastname,firstname,nickname,phone_number,address,email_address,birth_date,category) VALUES(?,?,?,?,?,?,?,?,?)";
 		try(Connection connection = DataSourceFactory.getDataSource().getConnection()) {
 			try (PreparedStatement statement = connection.prepareStatement(sqlQuery,Statement.RETURN_GENERATED_KEYS)) {
 				statement.setInt(1, num);
 				statement.setString(2, person.getLastname());
 				statement.setString(3, person.getFirstname());
 				statement.setString(4, person.getNickname());
-				statement.setInt(5, person.getPhone_number());
+				statement.setString(5, person.getPhone_number());
 				statement.setString(6, person.getAddress());
 				statement.setString(7, person.getEmail_address());
 				statement.setDate(8, Date.valueOf(person.getBirth_date()));
+				statement.setString(9, person.getCategory());
 				statement.executeUpdate();
-				System.out.println("adding person on database");
+				System.out.println("Adding person on database");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -10,31 +11,35 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isen.java2.view.TableController">
    <children>
-      <TableView fx:id="personsTable" layoutX="22.0" layoutY="56.0" prefHeight="283.0" prefWidth="558.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="56.0">
+      <TableView fx:id="personsTable" layoutX="21.0" layoutY="70.0" prefHeight="283.0" prefWidth="558.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="70.0">
         <columns>          
           <TableColumn fx:id="tc_lastname" prefWidth="55.0" text="Nom" />
           <TableColumn fx:id="tc_firstname" prefWidth="55.0" text="Prenom" />
           <TableColumn fx:id="tc_nickname" prefWidth="55.0" text="Nickname" />
-          <TableColumn fx:id="tc_phone" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="Phone" />
           <TableColumn fx:id="tc_adress" prefWidth="75.0" text="Adress" />
           <TableColumn fx:id="tc_eadress" prefWidth="165.0" text="Eadress" /> 
-          <TableColumn fx:id="tc_birth" prefWidth="80.0" text="Birth" />
+          <TableColumn fx:id="tc_birth" text="Birth" />
+            <TableColumn fx:id="tc_category" prefWidth="80.0" text="Category" />
+            <TableColumn fx:id="tc_phone" prefWidth="50.0" text="Tel" />
         </columns>
         
        
       </TableView>
       <AnchorPane fx:id="formPane" prefHeight="61.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button layoutX="140.0" layoutY="19.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleEditButton" text="Edit" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="25.0" />
-            <Button minWidth="60.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Search" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="120.0" />
+            <Button layoutX="140.0" layoutY="23.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleEditButton" text="Edit" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="25.0" />
+            <Button layoutX="19.0" layoutY="23.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleSearchButton" text="Search" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="120.0" />
          </children>
       </AnchorPane>
-      <TextField fx:id="TF_search" layoutX="155.0" layoutY="19.0" prefHeight="23.0" prefWidth="272.0" promptText="Search the lastname" AnchorPane.rightAnchor="173.0" AnchorPane.topAnchor="18.0" />
-      <ImageView fx:id="imageview" accessibleRole="BUTTON" fitHeight="23.0" fitWidth="23.0" onMouseClicked="#handleSearchButton" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="144.0" AnchorPane.topAnchor="18.0">
+      <TextField fx:id="TF_search" layoutX="155.0" layoutY="13.0" prefHeight="23.0" prefWidth="272.0" promptText="Search the lastname" AnchorPane.rightAnchor="173.0" AnchorPane.topAnchor="13.0" />
+      <ImageView fx:id="imageview" accessibleRole="BUTTON" fitHeight="23.0" fitWidth="23.0" layoutX="433.0" layoutY="14.0" onMouseClicked="#handleSearchButton" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="144.0" AnchorPane.topAnchor="14.0">
          <image>
             <Image url="@search.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="520.0" layoutY="19.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleRefreshButton" text="Refresh" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="18.0" />
+      <Button layoutX="500.0" layoutY="12.0" minWidth="80.0" mnemonicParsing="false" onAction="#handleRefreshButton" text="Refresh" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="12.0" />
+      <RadioButton fx:id="radio1" layoutX="40.0" layoutY="49.0" mnemonicParsing="false" text="Family" />
+      <RadioButton fx:id="radio2" layoutX="142.0" layoutY="49.0" mnemonicParsing="false" text="Friend" />
+      <RadioButton fx:id="radio3" layoutX="240.0" layoutY="49.0" mnemonicParsing="false" text="Roommate" />
    </children>
 </AnchorPane>

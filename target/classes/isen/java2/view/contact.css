@@ -1,4 +1,4 @@
-#homeButton{
+.homeButton{
 	-fx-background-color: transparent, #6fbfeb;
     -fx-background-radius: 0px;
     -fx-text-fill:white;

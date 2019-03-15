@@ -46,6 +46,7 @@ public class PersonController {
 	@FXML private TextField TF_address;
 	@FXML private TextField TF_email;
 	@FXML private TextField TF_birth;
+	@FXML private TextField TF_category;
 	
 	private Person currentPerson;	
 	
@@ -77,41 +78,42 @@ public class PersonController {
                 showPersonDetails(newValue);
             }
         });
-        System.out.println("index:"+IndexService.getIndex());
+        System.out.println("Index:"+IndexService.getIndex());
         this.resetView();
     }
 
     @FXML
     private void handleSaveButton() {
-    	System.out.println("save button: currentPerson id "+this.currentPerson.getId());
+    	System.out.println("Save button: currentPerson id "+this.currentPerson.getId());
         this.currentPerson.setLastname(this.TF_lastname.getText());
         this.currentPerson.setFirstname(this.TF_firstname.getText());
         this.currentPerson.setNickname(this.TF_nickname.getText());
-        this.currentPerson.setPhone_number(new Integer(this.TF_phone.getText()));
+        this.currentPerson.setPhone_number(this.TF_phone.getText());
         this.currentPerson.setAddress(this.TF_address.getText());
         this.currentPerson.setEmail_address(this.TF_email.getText());
-        this.currentPerson.setBirth_date(this.TF_birth.getText());   
+        this.currentPerson.setBirth_date(this.TF_birth.getText());
+        this.currentPerson.setCategory(this.TF_category.getText());
         this.personsTable.refresh();
         this.showPersonDetails(this.currentPerson);
         
-        Person p=new Person(this.currentPerson.getId(),this.TF_lastname.getText(),this.TF_firstname.getText(),
-        			this.TF_nickname.getText(),new Integer(this.TF_phone.getText()),this.TF_address.getText(),
-        			this.TF_email.getText(),LocalDate.of(2000, Month.JANUARY, 01));
-        System.out.println("now saving");
-        new PersonDao().save(p);        
+        Person p=new Person(this.currentPerson.getId(),this.currentPerson.getLastname(),this.currentPerson.getFirstname(),
+        		this.currentPerson.getNickname(),this.currentPerson.getPhone_number(),this.currentPerson.getAddress(),this.currentPerson.getEmail_address(),
+        		this.currentPerson.getBirth_date(),this.currentPerson.getCategory());
+        System.out.println("Now saving");
+        new PersonDao().save(p);
         
     }
 
 
     @FXML
     private void handleNewButton() {
-        Person question = new Person(null,"Nom","Prenom","Nickname",0,"Adress","E-mail",LocalDate.of(2000, Month.JANUARY, 01));
+        Person question = new Person(null,"Nom","Prenom","Nickname","0","Adress","E-mail",LocalDate.of(2000, Month.JANUARY, 01),"Other");
         PersonService.addQuestion(question);
 
         int size=personsTable.getItems().size();
-        System.out.println("personsTable.getItems().size():"+size);
+        System.out.println("PersonsTable.getItems().size():"+size);
         int num=personsTable.getItems().get(size-2).getId()+1;
-        System.out.println("add id:"+num);
+        System.out.println("Add id:"+num);
         question.setId(num);
         
         personsTable.getSelectionModel().select(question);
@@ -122,7 +124,7 @@ public class PersonController {
     private void handleDeleteButton() {
         int selectedIndex = personsTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
-        	System.out.println("deleting item:"+selectedIndex);
+        	System.out.println("Deleting item:"+selectedIndex);
         	new PersonDao().delete(personsTable.getItems().get(selectedIndex).getPerson());
         	personsTable.getItems().remove(selectedIndex);
             resetView();            
@@ -158,10 +160,11 @@ public class PersonController {
             this.TF_lastname.setText(this.currentPerson.getLastname());
             this.TF_firstname.setText(this.currentPerson.getFirstname());
             this.TF_nickname.setText(this.currentPerson.getNickname());
-            this.TF_phone.setText(this.currentPerson.getPhone_number().toString());
+            this.TF_phone.setText(this.currentPerson.getPhone_number());
             this.TF_address.setText(this.currentPerson.getAddress());
             this.TF_email.setText(this.currentPerson.getEmail_address());
             this.TF_birth.setText(this.currentPerson.getBirth_date().toString());
+            this.TF_category.setText(this.currentPerson.getCategory());
             
         }
     }

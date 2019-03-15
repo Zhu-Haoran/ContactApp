@@ -9,14 +9,15 @@ public class Person {
 	private String lastname;
 	private String firstname;
 	private String nickname;
-	private Integer phone_number;
+	private String phone_number;
 	private String address;
 	private String email_address;
 	private LocalDate birth_date;
+	private String category;
 
 	
-	public Person(String lastname, String firstname, String nickname, Integer phone_number, 
-			String address, String email_address, LocalDate birth_date) {
+	public Person(String lastname, String firstname, String nickname, String phone_number, 
+			String address, String email_address, LocalDate birth_date, String category) {
 		this.lastname = lastname;
 		this.firstname = firstname;
 		this.nickname = nickname;
@@ -24,11 +25,12 @@ public class Person {
 		this.address = address;
 		this.email_address = email_address;
 		this.birth_date=birth_date;
+		this.category=category;
 	}
 	
 
-	public Person(Integer id, String lastname, String firstname, String nickname, Integer phone_number, 
-			String address, String email_address, LocalDate birth_date) {
+	public Person(Integer id, String lastname, String firstname, String nickname, String phone_number, 
+			String address, String email_address, LocalDate birth_date, String category) {
 		this.id = id;
 		this.lastname = lastname;
 		this.firstname = firstname;
@@ -37,6 +39,7 @@ public class Person {
 		this.address = address;
 		this.email_address = email_address;
 		this.birth_date=birth_date;
+		this.category=category;
 	}
 
 	public Integer getId() {
@@ -49,7 +52,7 @@ public class Person {
 	
 	public Person getPerson() {
 		return new Person(getId(), getLastname(), getFirstname(), getNickname(), 
-				getPhone_number(), getAddress(), getEmail_address(), getBirth_date());
+				getPhone_number(), getAddress(), getEmail_address(), getBirth_date(), getCategory());
 	}
 
 	public String getLastname() {
@@ -76,11 +79,11 @@ public class Person {
 		this.nickname = nickname;
 	}
 	
-	public Integer getPhone_number() {
+	public String getPhone_number() {
 		return phone_number;
 	}
 
-	public void setPhone_number(Integer phone_number) {
+	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
 	}
 	
@@ -112,6 +115,14 @@ public class Person {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate ldt = LocalDate.parse(birth_date,dtf);
 		this.birth_date = ldt;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+	
+	public void setCategory(String category) {
+		this.category=category;
 	}
 	
 
