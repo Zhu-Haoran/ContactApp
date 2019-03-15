@@ -8,13 +8,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isen.java2.view.PersonController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="goodAnswer" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="isen.quiz.view.QuestionsAdminController">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" layoutX="200.0" layoutY="74.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView fx:id="personsTable" layoutX="-25.0" layoutY="28.0" prefHeight="348.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="questionsTable" layoutX="-25.0" layoutY="28.0" prefHeight="348.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="tc_lastname" prefWidth="-1.0" text="lastname" />
                       <TableColumn fx:id="tc_firstname" prefWidth="30" text="firstname" />
@@ -45,13 +45,12 @@
                         <TextField fx:id="TF_email" layoutX="161.0" layoutY="235.0" />
                         <TextField fx:id="TF_birth" layoutX="161.0" layoutY="278.0" />
                         <TextField fx:id="TF_category" layoutX="161.0" layoutY="320.0" />
-                        <Button mnemonicParsing="false" onAction="#handleSaveButton" text="Save" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="85.0" />
+                        <Button mnemonicParsing="false" onAction="#handleSaveButton" text="Save" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="70.0" />
                         <Button mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                        
+                        <Button mnemonicParsing="false" onAction="#backButton" text="back" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="130.0" />
                      </children>
                   </AnchorPane>
                   <Button layoutX="219.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleNewButton" text="New" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
-                  <Button mnemonicParsing="false" onAction="#backButton" text="back" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="70.0" />
                </children></AnchorPane>
         </items>
       </SplitPane>
