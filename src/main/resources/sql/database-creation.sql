@@ -36,11 +36,9 @@ CREATE TABLE `person` (
 -- Dumping data for table `person`
 --
 
-INSERT INTO `person` (`idperson`, `lastname`, `firstname`, `nickname`, `phone_number`, `address`, `email_address`, `birth_date`, `Category`) VALUES
-(1, 'GENG', 'Mingxue', 'Mingxuexue', '0761559161', '5 rue de FF', 'mingxue@gmail.com', '1997-06-16', 'MySlef'),
-(2, 'PAN', 'Yuanxiang', 'Panpan', '0766291882', '5 rue de LL', 'yuanxiang@gamil.com', '1997-02-24', 'Friend'),
-(3, 'ZHENG', 'Wanqi', 'Qiqi', '0655193872', '5 rue de EE', 'wanqi@gmail.com', '1996-07-27', 'Friend'),
-(4, 'CAO', 'Yu', 'Yuyu', '0567532098', '5 rue de NN', 'yuyu@gmail.com', '1996-07-08', 'Friend'),
-(5, 'WANG', 'Xin', 'Xinxin', '0736524438', '5 rue de DD', 'xinxin@gmail.com', '1996-01-30', 'Friend'),
-(6, 'XU', 'Lu', 'Lulu', '0536784291', '10 rue de BB', 'lulu@gmail.com', '1995-05-09', 'Friend'),
-(7, 'ZHU', 'Haoran', 'Haoran', '0647386554', '10 rue de AA', 'haoran@gmail.com', '1995-01-01', 'Friend');
+INSERT INTO `person` (`lastname`, `firstname`, `nickname`, `phone_number`, `address`, `email_address`, `birth_date`, `Category`) VALUES
+('GENG', 'Mingxue', 'Mingxuexue', '0761559161', '5 rue de FF', 'mingxue@gmail.com', '1997-06-16', 'Friend'),
+('PAN', 'Yuanxiang', 'Panpan', '0766291882', '5 rue de LL', 'yuanxiang@gamil.com', '1997-02-24', 'Friend'),
+('ZHENG', 'Wanqi', 'Qiqi', '0655193872', '5 rue de EE', 'wanqi@gmail.com', '1996-07-27', 'Friend'),
+('XU', 'Lu', 'Lulu', '0536784291', '10 rue de BB', 'lulu@gmail.com', '1995-05-09', 'Friend'),
+('ZHU', 'Haoran', 'Haoran', '0647386554', '10 rue de AA', 'haoran@gmail.com', '1995-01-01', 'Friend');
