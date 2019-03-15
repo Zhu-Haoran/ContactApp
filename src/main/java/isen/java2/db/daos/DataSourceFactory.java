@@ -11,8 +11,8 @@ public class DataSourceFactory {
 	public static DataSource getDataSource() {
 		if (dataSource == null) {
 			dataSource = new MysqlDataSource();
-			dataSource.setServerName("localhost");
-			dataSource.setPort(8889);
+			dataSource.setServerName("127.0.0.1");
+			dataSource.setPort(3306);
 			dataSource.setDatabaseName("contact_app");
 			dataSource.setUser("root");
 			dataSource.setPassword("");

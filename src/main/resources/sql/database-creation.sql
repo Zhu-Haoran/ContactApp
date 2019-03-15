@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `person` (
-  `idperson` int(11) NOT NULL,
+  `idperson` int PRIMARY KEY AUTO_INCREMENT,
   `lastname` varchar(45) NOT NULL,
   `firstname` varchar(45) NOT NULL,
   `nickname` varchar(45) NOT NULL,
@@ -44,23 +44,3 @@ INSERT INTO `person` (`idperson`, `lastname`, `firstname`, `nickname`, `phone_nu
 (5, 'WANG', 'Xin', 'Xinxin', '0736524438', '5 rue de DD', 'xinxin@gmail.com', '1996-01-30', 'Friend'),
 (6, 'XU', 'Lu', 'Lulu', '0536784291', '10 rue de BB', 'lulu@gmail.com', '1995-05-09', 'Friend'),
 (7, 'ZHU', 'Haoran', 'Haoran', '0647386554', '10 rue de AA', 'haoran@gmail.com', '1995-01-01', 'Friend');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `person`
---
-ALTER TABLE `person`
-  ADD PRIMARY KEY (`idperson`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `person`
---
-ALTER TABLE `person`
-  MODIFY `idperson` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
